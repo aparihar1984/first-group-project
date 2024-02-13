@@ -17,6 +17,7 @@
   nav {
     display: flex;
     background-color: #d8a47f;
+    justify-content: center;
   }
   
   nav a {
@@ -28,8 +29,11 @@
   
   main {
     display: flex;
+    /* flex-direction: row; */
     flex-wrap: wrap;
+    /* align-items: stretch; */
   }
+
   
   aside {
     flex: 1;
@@ -40,7 +44,7 @@
   section {
     flex: 3;
     background-color: #fff;
-    padding: 20px;
+    padding: 40px;
   }
   
   .sample-img {
@@ -52,8 +56,12 @@
   }
   
   footer {
-    padding: 20px;
+    padding: 60px;
     text-align: center;
-    background: #13293d;
-    color: #fff;
+    background: #0a0a0a;
+    color: #d41515;
+    /* position:absolute; */
+    /* left: 0; */
+    /* bottom: 0;
+    width: 100%; */
   }
