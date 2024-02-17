@@ -11,20 +11,19 @@
   <title>Character Search</title>
 </head>
 
-<body class="flex-column min-100-vh">
+<body>
   <header class="hero">
-    <p>Search for a Marvel Character to see a list of repositories they have!
+    <p>Search for a Marvel Character to see their biography!
     </p>
   </header>
 
-
-  <main class="flex-row justify-space-between">
+<main>
     <div class="col-12 col-md-4">
 
       <div class="card">
         <h3 class="card-header text-uppercase">Search By Character</h3>
         <form id="user-form" class="card-body">
-          <label class="form-label" for="username">Character</label>
+          <label class="form-label" for="username">Enter Character Name</label>
           <input name="username" id="username" type="text" autofocus="true" class="form-input" />
           <button type="submit" class="btn">Get Character</button>
         </form>
@@ -32,7 +31,7 @@
     </div>
 
     <div class="col-12 col-md-8">
-      <h2 class="subtitle">Showing Repositories for: <span id="repo-search-term"></span></h2>
+      <h2 class="subtitle">Showing Your Character's Story: <span id="repo-search-term"></span></h2>
       <div id="repos-container" class="list-group"></div>
     </div>
   </main>
