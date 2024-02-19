@@ -1,67 +1,100 @@
 * {
     box-sizing: border-box;
   }
-  
-  body {
-    font-family: Arial;
-    margin: 0;
+
+body {
+  font-family: "Arial Black", sans-serif;
+  font-size: 150px;
+  font-weight: bolder;
   }
   
-  header {
+header {
     padding: 40px;
     text-align: center;
-    background: #13293d;
-    color: #fff;
+    background: #161414;
+    color: #d41515; 
   }
+  
   
   nav {
     display: flex;
-    background-color: #d8a47f;
+    background-color: #131212;
     justify-content: center;
+    color: white;  
+    font-family: "Marvel", sans-serif;
   }
   
   nav a {
-    color: #13293d;
+    color: #131212;
     padding: 14px 20px;
     text-decoration: none;
     text-align: center;
+    color: white; 
+    font-size: 20px;
   }
   
   main {
-    /* display: flex; */
+    /* display: flex; */ 
     /* flex-direction: row; */
     /* flex-wrap: wrap; */
-    /* align-items: stretch; */
+    /* /* align-items: stretch; */
   }
 
   
   aside {
     flex: 1;
-    background-color: #b9c6ae;
+    background-color: #161414;
     padding: 20px;
   }
-  
+
+  aside img {
+    height: auto;
+    width: 100%;
+  }
+
   section {
     flex: 3;
-    background-color: #fff;
+    background-color: #161414;
     padding: 40px;
+    color: white; 
+    font-family: "Marvel", sans-serif;
+    font-size: 40px;
   }
   
-  .sample-img {
-    background-color: #fff;
-    width: 100%;
-    padding: 20px;
-    height: 200px;
-    border: 1px solid black;
-  }
   
   footer {
     padding: 60px;
     text-align: center;
-    background: #0a0a0a;
+    background: #161414;
     color: #d41515;
-    /* position:absolute; */
-    /* left: 0; */
-    /* bottom: 0;
-    width: 100%; */
+    font-family: "Marvel", sans-serif;
+    .fa {
+      padding: 20px;
+      font-size: 30px;
+      width: 50px;
+      text-align: center;
+      text-decoration: none;
+    }
+
+.fa:hover {
+  opacity: 0.7;
+}
+
+/* Facebook */
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+/* YouTube */
+.fa-youtube {
+  background: #bb0000;
+  color: white;
+}
+
+/* Instagram */
+.fa-instagram {
+  background: #b2139d;
+  color: white;
+}
   }
