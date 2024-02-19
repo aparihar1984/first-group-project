@@ -54,5 +54,10 @@ var displayCard = function(result) {
   });
   }
 
+const goBackButton = document.getElementById('go-back-button');
+  if (goBackButton) {
+goBackButton.addEventListener('click', goBack);
+};
+
 userFormEl.addEventListener('submit', formSubmitHandler);
 
