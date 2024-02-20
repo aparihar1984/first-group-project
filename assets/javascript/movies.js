@@ -1,65 +1,49 @@
-var userFormEl = document.querySelector('#user-form');
-var nameInputEl = document.querySelector('#username');
-
-var formSubmitHandler = function (event) {
-  event.preventDefault();
+// Define constants for elements
+const form = document.getElementById('search-form');
+const input = document.getElementById('search-input');
+const moviesContainer = document.getElementById('movies-container');
  
-  var username = nameInputEl.value.trim();
+// Function to fetch movies based on search query
+const fetchMovies = async (query) => {
+    try {
+        // Fetch movie data from OMDb API
+        const response = await fetch(`http://www.omdbapi.com/?apikey=afd5cfe2&s=${query}`);
+        const data = await response.json();
+       
+        // Check if data contains search results
+        if (data.Response === "True") {
+            displayMovies(data.Search);
+        } else {
+            console.error('Error fetching movies:', data.Error);
+        }
+    } catch (error) {
+        console.error('Error fetching movies:', error);
+    }
+};
  
-  if (username) {
-    getUserRepos(username);
+// Function to display movies in the container
+const displayMovies = (movies) => {
+    // Clear previous search results
+    moviesContainer.innerHTML = '';
  
-    nameInputEl.value = '';
-  }
+    // Iterate over each movie and create a card for it
+    movies.forEach((movie) => {
+        const movieCard = document.createElement('div');
+        movieCard.classList.add('movie-card');
+        movieCard.innerHTML = `
+            <h2>${movie.Title}</h2>
+            <p>Year: ${movie.Year}</p>
+            <img src="${movie.Poster}" alt="${movie.Title}">
+        `;
+        moviesContainer.appendChild(movieCard);
+    });
 };
-
-var getUserRepos = async function (superheroName) {
  
-
-const url = 'https://movies-api14.p.rapidapi.com/search?query=' + superheroName;
-const options = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': '1a96dce8b6msh2e784b017f5108ap1da68ajsn1add6c64f40a',
-		'X-RapidAPI-Host': 'movies-api14.p.rapidapi.com'
-	}
-};
-
-try {
-	const response = await fetch(url, options);
-	const result = await response.json();
-	console.log(result);
-} catch (error) {
-	console.error(error);
-}
-
-};
-
-// var displayCard = function(result) {
-//   var superheroesList = document.getElementById('superheroes-list')
-//   superheroesList.textContent = '';
-//     result.hero.forEach(superhero => {
-//       const superheroCard = document.createElement('div');
-//       superheroCard.classList.add('superhero-card');
-//       const superheroName = document.createElement('h2');
-//       superheroName.textContent = superhero.contents.title;
-// //       const superheroImage = document.createElement('img');
-// //       superheroImage.src = superhero.data.image.url;
-//       superheroImage.alt = superhero.contents.title;
-// //       const superheroPowerstats = document.createElement('p');
-// //       superheroPowerstats.textContent = `Intelligence: ${superhero.data.powerstats.intelligence}, Strength: ${superhero.data.powerstats.strength}, Speed: ${superhero.data.powerstats.speed}`;
-//       superheroCard.appendChild(superheroName);
-// //       superheroCard.appendChild(superheroImage);
-// //       superheroCard.appendChild(superheroPowerstats);
-// //       superheroesList.appendChild(superheroCard);
-//   });
-// }
-
-
-const goBackButton = document.getElementById('go-back-button');
-  if (goBackButton) {
-goBackButton.addEventListener('click', goBack);
-};
-
-userFormEl.addEventListener('submit', formSubmitHandler);
-
+// Event listener for form submission
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const searchTerm = input.value.trim();
+    if (searchTerm !== '') {
+        fetchMovies(searchTerm);
+    }
+});
