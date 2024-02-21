@@ -7,7 +7,7 @@ const moviesContainer = document.getElementById('movies-container');
 const fetchMovies = async (query) => {
     try {
         // Fetch movie data from OMDb API
-        const response = await fetch(`http://www.omdbapi.com/?apikey=afd5cfe2&s=${query}`);
+        const response = await fetch(`https://www.omdbapi.com/?apikey=afd5cfe2&s=${query}`);
         const data = await response.json();
         console.log(data);
        
