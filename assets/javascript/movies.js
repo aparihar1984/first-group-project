@@ -9,6 +9,7 @@ const fetchMovies = async (query) => {
         // Fetch movie data from OMDb API
         const response = await fetch(`http://www.omdbapi.com/?apikey=afd5cfe2&s=${query}`);
         const data = await response.json();
+        console.log(data);
        
         // Check if data contains search results
         if (data.Response === "True") {
